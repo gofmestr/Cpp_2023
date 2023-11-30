@@ -1,0 +1,11 @@
+#include<iostream>
+using namespace std;
+int main() {
+	int x, y;
+	x = 66;
+	y = 33;
+	int g = x / y; //целочислительное деление 
+	int b = x % y; //вычисление остатка от деления
+	cout << g << "\t" << b << endl;
+	return 0;
+}
