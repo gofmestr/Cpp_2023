@@ -1,0 +1,24 @@
+// M01 (3б) Используя циклы выведите таблицу Пифагора. 
+// Она должна быть отформатирована (используйте символ табуляции).
+
+#include <iostream>
+using namespace std;
+
+int main() { 
+	setlocale(LC_ALL, "RU");
+	int x;
+	int y;
+	int multx = 0;
+	int multy = 0;
+
+	cout << "\t \t \t \t"  << "Таблица Пифагора";
+	for (x = 1; x <= 9; x++) {
+		multx = x;
+		cout << '\n' << endl;
+		for (y = 1; y <= 9; y++) {
+			multy = multx * y;
+			cout << '\t' << multy;
+		}
+	}
+	return 0;
+}
