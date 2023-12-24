@@ -1,0 +1,66 @@
+//H02 (5б) Напишите класс комплексных чисел Complex. 
+// При объявлении переменной типа Complex, ему передаются действительная r и мнимая i части: Complex v(4,5).
+//  Перегрузите операторы сложения, вычитания, 
+// умножения и деления согласно правил этих операций для комплексных чисел (см. комплексная арифметика). 
+// Продемонстрируйте работу всех операторов.
+
+#include <iostream>
+using namespace std;
+//Создание класса комплексных чисел Complex и перегрузка операторов 
+// сложения, вычитания, умножения и деления в соответствии с правилами 
+// операций для этих комплексных чисел можно произвести следующим образом:
+
+class Complex {
+    //Определяет класс , который содержит два частных поля - и Complex, real, imag
+private:
+    double real, imag;
+
+public:
+    Complex(double r = 0, double i = 0) : real(r), imag(i) {}
+    //Конструктор класса , который создает объекты класса с заданными значениями действительной
+    //  и минимальной частей комплексного числа
+
+    Complex operator+(const Complex& c) {
+        return Complex(real + c.real, imag + c.imag);
+    }
+
+    Complex operator-(const Complex& c) {
+        return Complex(real - c.real, imag - c.imag);
+    }
+
+    Complex operator*(const Complex& c) {
+        return Complex(real * c.real - imag * c.imag, real * c.imag + imag * c.real);
+    }
+
+    Complex operator/(const Complex& c) {
+        double den = c.real * c.real + c.imag * c.imag;
+        return Complex((real * c.real + imag * c.imag) / den, (imag * c.real - real * c.imag) / den);
+    }
+
+    void display() {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main() {
+    Complex v1(4, 5);
+    Complex v2(2, 3);
+
+    Complex sum = v1 + v2;
+    Complex diff = v1 - v2;
+    Complex prod = v1 * v2;
+    Complex quot = v1 / v2;
+
+    sum.display();
+    diff.display();
+    prod.display();
+    quot.display();
+
+    return 0;
+}
+//В этом коде определения класса Complex, который имеет два частных поля — действительную и мнимую части комплексного числа.
+//  Конструктор класса принимает два параметра — действительную и меньшую часть комплексного числа. Затем перегружены операторы сложений, 
+// вычисления, умножения деления и чтения для комплексных чисел. В функции main() определяют два класса класса Complex,
+//  а затем производятся операции представления,
+//  вычитания, умножения и деления с помощью перегруженных операторов. 
+// Результаты операций выводятся на экран с помощью метода display().
